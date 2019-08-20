@@ -1,25 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { fetchOrders } from "./api";
+
+import Home from "../src/pages/Home";
+import Order from "../src/pages/Order";
 
 function App() {
+  const [currentState, setState] = useState({
+    loading: false,
+    error: null,
+    data: []
+  });
+
+  useEffect(() => {
+    setState({ loading: true, error: false, data: [] });
+    fetchOrders().then(
+      result => {
+        setState({ loading: false, data: result, error: false });
+      },
+      error => {
+        setState({ loading: false, error });
+      }
+    );
+  }, []);
+  console.dir(currentState);
   return (
-    <div className="App">
+    <Router>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h2> Current Orders</h2>
       </header>
-    </div>
+      <Route path="/" exact component={Home} />
+      <Route path="/:id" component={Order} />
+    </Router>
   );
 }
 
