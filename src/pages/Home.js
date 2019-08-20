@@ -1,11 +1,48 @@
-import React, { Component } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
+import "./pageStyles.scss";
 
-export default class Home extends Component {
-  render() {
-    return (
-      <div>
-        <h2>Home</h2>
-      </div>
-    );
-  }
-}
+const Home = ({ currentOrders, updateSelectedOrder }) => {
+  const renderOrders = orderArray => {
+    return orderArray.map(item => {
+      const {
+        customerName,
+        orderId,
+        orderItems,
+        shipAddress,
+        status,
+        total
+      } = item;
+      return (
+        <ul className="item_row" key={orderId}>
+          <li>
+            <Link to={`order/${orderId}`}>
+              {orderId.toString().substring(8, 15)}
+            </Link>
+          </li>
+          <li>{customerName}</li>
+          <li>{status}</li>
+          <li>{shipAddress.state}</li>
+          <li>{orderItems.length}</li>
+          <li>{total}</li>
+        </ul>
+      );
+    });
+  };
+
+  return (
+    <div className="home_container">
+      <ul className="item_columns">
+        <li>Id#</li>
+        <li>Customer</li>
+        <li>Status</li>
+        <li>State</li>
+        <li># of Items</li>
+        <li>Order Total</li>
+      </ul>
+      <div className="items_container">{renderOrders(currentOrders)}</div>
+    </div>
+  );
+};
+
+export default Home;

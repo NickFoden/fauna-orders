@@ -1,0 +1,20 @@
+@import-normalize;
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
+$color-black: #000000;
+$color-gray: #999999;
+$color-light-gray: #d3d3d3;
+$color-fauna-blue: #3642ce;
+$color-fauna-purple: #323fcb;
+
+$font-Open-Sans: 400 16px 'Open Sans', sans-serif;
+$font-Raleway: 500 16px 'Raleway', sans-serif;

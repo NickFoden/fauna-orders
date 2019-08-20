@@ -1,0 +1,60 @@
+@import "../index.scss";
+
+h1 {
+  text-transform: capitalize;
+}
+
+.home_container {
+  margin-left: 25px;
+}
+
+.item_columns {
+  align-content: space-between;
+  display: flex;
+  list-style: none;
+  list-style-position: inside;
+  margin: 2px 0;
+  padding: 0;
+  width: 600px;
+
+  li {
+    font: $font-Open-Sans;
+    margin: 5px;
+    text-align: center;
+    width: 100px;
+  }
+}
+
+.items_container {
+  background-color: $color-light-gray;
+  border: 1px solid black;
+  color: black;
+  width: 600px;
+
+  .item_row {
+    align-content: space-between;
+    display: flex;
+    list-style: none;
+    list-style-position: inside;
+    margin: 2px 0;
+    padding: 0;
+    width: 600px;
+
+    a {
+      color: $color-fauna-blue;
+      text-decoration: none;
+    }
+
+    li {
+      background-color: white;
+      border: 1px solid black;
+      font: $font-Open-Sans;
+      font-size: 12px;
+      list-style-position: inside;
+      margin: 5px;
+      text-align: center;
+      width: 100px;
+    }
+  }
+
+}

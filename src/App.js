@@ -2,35 +2,40 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { fetchOrders } from "./api";
 
+import HeaderNav from "../src/components/HeaderNav";
 import Home from "../src/pages/Home";
-import Order from "../src/pages/Order";
+import OrderPage from "./pages/OrderPage";
 
 function App() {
   const [currentState, setState] = useState({
-    loading: false,
+    loaded: false,
     error: null,
     data: []
   });
-
   useEffect(() => {
-    setState({ loading: true, error: false, data: [] });
+    setState({ loaded: false, error: false, data: [] });
     fetchOrders().then(
       result => {
-        setState({ loading: false, data: result, error: false });
+        setState({ loaded: true, data: result, error: false });
       },
       error => {
-        setState({ loading: false, error });
+        setState({ loaded: true, data: [], error });
       }
     );
   }, []);
-  console.dir(currentState);
+  console.log(currentState.data);
   return (
     <Router>
-      <header className="App-header">
-        <h2> Current Orders</h2>
-      </header>
-      <Route path="/" exact component={Home} />
-      <Route path="/:id" component={Order} />
+      <HeaderNav />
+      <Route
+        exact
+        path="/"
+        render={props => <Home {...props} currentOrders={currentState.data} />}
+      />
+      <Route
+        path="/order/:id"
+        render={props => <OrderPage {...props} currentState={currentState} />}
+      />
     </Router>
   );
 }
