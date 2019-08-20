@@ -1,5 +1,5 @@
 ## Fauna Orders
 
-In the project directory, you can run: `npm start`
+In the project directory, you can run: `npm start` and to test `npm test`
 
-Change .env.example to .env and include your endpoint
+Will need to change .env.example to .env and include your endpoint
