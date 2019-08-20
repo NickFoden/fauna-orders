@@ -27,8 +27,8 @@ h1 {
 
 .items_container {
   background-color: $color-light-gray;
-  border: 1px solid black;
-  color: black;
+  border: 1px solid $color-black;
+  color: $color-black;
   width: 600px;
 
   .item_row {
@@ -47,7 +47,7 @@ h1 {
 
     li {
       background-color: white;
-      border: 1px solid black;
+      border: 1px solid $color-black;
       font: $font-Open-Sans;
       font-size: 12px;
       list-style-position: inside;

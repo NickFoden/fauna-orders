@@ -15,14 +15,14 @@
 }
 
 .shipping_label {
-  border: 1px solid black;
+  border: 1px solid $color-black;
   margin: 25px;
   width: 500px;
 
   .shipping_label_top {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid $color-black;
 
     h1 {
       font-size: 50px;
@@ -35,7 +35,7 @@
   }
 
   .priority {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid $color-black;
     text-align: center;
     width: 100%;
 
@@ -92,7 +92,7 @@
   }
 
   div {
-    border-top: 1px solid black;
+    border-top: 1px solid $color-black;
     text-align: center;
 
     h5 {

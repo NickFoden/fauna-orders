@@ -26,6 +26,7 @@ function App() {
   return (
     <Router>
       <HeaderNav />
+      {currentState.error && <h4>Error: {currentState.error}</h4>}
       <Route
         exact
         path="/"
