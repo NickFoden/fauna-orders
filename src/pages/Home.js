@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./pageStyles.scss";
 
-const Home = ({ currentOrders, updateSelectedOrder }) => {
+const Home = ({ currentOrders }) => {
   const renderOrders = orderArray => {
     return orderArray.map(item => {
       const {
@@ -40,7 +40,9 @@ const Home = ({ currentOrders, updateSelectedOrder }) => {
         <li># of Items</li>
         <li>Order Total</li>
       </ul>
-      <div className="items_container">{renderOrders(currentOrders)}</div>
+      <div className="items_container">
+        {currentOrders.length > 0 ? renderOrders(currentOrders) : null}
+      </div>
     </div>
   );
 };
